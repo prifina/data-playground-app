@@ -1,17 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { Playground, store } from 'graphql-playground-react'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
-// import App from './App'
+import { BrowserRouter as Router } from "react-router-dom";
 
-const rootElement = document.getElementById('root')
 ReactDOM.render(
-<React.StrictMode>
-<Provider store={store}>
-<Playground endpoint='https://api-us-west-2.graphcms.com/v2/ckhkrkt47eyly01z12b702jo6/master' />
-
-</Provider>
-</React.StrictMode>,
-rootElement
-)
+  <React.StrictMode>
+    <Router>
+      <App />
+    </Router>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
