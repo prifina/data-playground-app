@@ -21,7 +21,7 @@ const App = () => {
           )
         }
       >
-        PublicAPI
+        PrivateAPI
       </Button>
       <Button
         onClick={() =>
@@ -30,7 +30,7 @@ const App = () => {
           )
         }
       >
-        PrivateAPI
+        PublicAPI
       </Button>
 
       <Playground endpoint={endpoint} />
