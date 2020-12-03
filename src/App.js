@@ -1,14 +1,69 @@
-// import logo from './logo.svg';
-// import './App.css';
-// import { Playground, store } from 'graphql-playground-react'
+import React, { useState } from "react";
+import { Provider } from "react-redux";
+import { Playground, store } from "graphql-playground-react";
 
-// function App() {
-//   return (
-//     <div className="App">
-//           <Playground endpoint='https://api-eu-central-1.graphcms.com/v2/cki69jtzpa2mu01z2bvzr8ztf/master' />
+import { Button } from "@chakra-ui/react";
+// import App from './App'
 
-//     </div>
-//   );
-// }
+const App = () => {
+  const [endpoint, setEndpoint] = useState(
+    "https://api-us-west-2.graphcms.com/v2/ckhkrkt47eyly01z12b702jo6/master"
+  );
+  return (
+    <Provider store={store}>
+      <Button
+        colorScheme="teal"
+        variantColor="teal"
+        size="lg"
+        onClick={() =>
+          setEndpoint(
+            "https://api-us-west-2.graphcms.com/v2/ckhkrkt47eyly01z12b702jo6/master"
+          )
+        }
+      >
+        PublicAPI
+      </Button>
+      <Button
+        onClick={() =>
+          setEndpoint(
+            "https://api-eu-central-1.graphcms.com/v2/cki904bpa0pq601xw42kuga3n/master"
+          )
+        }
+      >
+        PrivateAPI
+      </Button>
 
-// export default App;
+      <Playground endpoint={endpoint} />
+    </Provider>
+  );
+};
+
+export default App;
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Provider store={store}>
+//       <Button
+//         onClick={() =>
+//           setEndpoint(
+//             "https://api-us-west-2.graphcms.com/v2/ckhkrkt47eyly01z12b702jo6/master"
+//           )
+//         }
+//       >
+//         Public
+//       </Button>
+//       <Button
+//         onClick={() =>
+//           setEndpoint(
+//             "https://api-eu-central-1.graphcms.com/v2/cki69jtzpa2mu01z2bvzr8ztf/master"
+//           )
+//         }
+//       >
+//         Private
+//       </Button>
+
+//       <Playground endpoint={endpoint} />
+//     </Provider>
+//   </React.StrictMode>,
+//   rootElement
+// );
